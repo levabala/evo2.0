@@ -1,12 +1,16 @@
-// import * as Creature from './Creature';
+// @flow
+import * as Creature from './Creature';
 
 class CreaturesController {
+  creatures_counter: number;
+  creatures: {};
+
   constructor() {
     this.creatures_counter = 0;
     this.creatures = {};
   }
 
-  addCreature(creature) {
+  addCreature(creature: Creature) {
     creature.setId(this.creatures_counter);
     this.creatures[creature.id] = creature;
     this.creatures_counter++;

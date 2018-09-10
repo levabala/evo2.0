@@ -1,4 +1,16 @@
+import P from '../assemblies/P';
+import NeuralNetwork from './NeuralNetwork';
+
+// @flow
+
 class Creature {
+  pos: P;
+  eating_type: number;
+  fatigue_downgrade: number;
+  max_age: number;
+  food_variety: number;
+  networks_input_requesters: Object;
+  networks: Array<NeuralNetwork>;
   constructor(
     pos,
     eating_type,

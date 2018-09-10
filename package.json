@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
+    "babel": "babel --presets es2015 src/js/main.js -o build/main.bundle.js",
     "start_server": "http-server",
     "webpack": "webpack",
     "webpack_watch": "webpack --watch",

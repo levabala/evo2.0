@@ -2,7 +2,7 @@ const path = require('path');
 // let webpack = require('webpack');
 
 module.exports = {
-  entry: './js/main.js',
+  entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'main.bundle.js',
@@ -18,7 +18,6 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env', '@babel/preset-flow'],
-              plugins: ['@babel/plugin-transform-flow-strip-types'],
             },
           },
         ],

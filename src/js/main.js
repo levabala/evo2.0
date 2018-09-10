@@ -4,7 +4,7 @@ import MapController from './classes/SimMapController';
 import SimMaster from './classes/SimMaster';
 import Map from './classes/SimMap';
 
-const map = new Map();
+const map = new Map(100, 100);
 const map_controller = new MapController(map);
 const creatures_controller = new CreaturesController();
 const sim_master = new SimMaster(map_controller, creatures_controller);

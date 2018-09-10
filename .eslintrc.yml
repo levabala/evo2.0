@@ -1,6 +1,5 @@
 extends:
   - 'airbnb-base'
-  - 'plugin:flowtype/recommended'
 env:
   node: true
   browser: true
@@ -11,6 +10,12 @@ parserOptions:
   ecmaVersion: 6
   sourceType: 'module'
 rules:
+  curly:
+    - 2
+    - 'multi'
+    - 'consistent'
+  nonblock-statement-body-position: 0
+  operator-linebreak: 0
   linebreak-style: 0
   camelcase: 0
   no-plusplus: 0
