@@ -1,20 +1,20 @@
-export class Range {
+class Range {
   constructor(from, to) {
     this.from = from;
     this.to = to;
   }
 
   apply(value) {
-    if (this.from >= value)
-      return this.from;
-    if (this.to <= value)
-      return this.to;
+    if (this.from >= value) return this.from;
+    if (this.to <= value) return this.to;
     return value;
   }
 
   isIn(value, include = false) {
-    return !(include && !(this.from <= value && this.to >= value)) &&
-      !(!include && !(this.from < value && this.to > value));
+    return (
+      !(include && !(this.from <= value && this.to >= value)) &&
+      !(!include && !(this.from < value && this.to > value))
+    );
   }
 
   generateNumber() {
@@ -24,3 +24,5 @@ export class Range {
 
 Range.ZeroToOne = new Range(0, 1);
 Range.MinusOneToOne = new Range(-1, 1);
+
+export default Range;

@@ -4,8 +4,6 @@ env:
   node: true
   browser: true
 parser: 'babel-eslint'
-plugins:
-  - 'flowtype'
 parserOptions:
   ecmaVersion: 6
   sourceType: 'module'
@@ -20,7 +18,3 @@ rules:
   camelcase: 0
   no-plusplus: 0
   no-console: 0
-  lines-between-class-members: 0
-settings:
-  flowtype:
-    onlyFilesWithFlowAnnotation: true

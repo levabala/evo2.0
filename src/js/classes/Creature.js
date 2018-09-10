@@ -1,24 +1,17 @@
 import P from '../assemblies/P';
-import NeuralNetwork from './NeuralNetwork';
+import NeuralNetwork from './networks/NeuralNetwork';
 
 // @flow
 
 class Creature {
-  pos: P;
-  eating_type: number;
-  fatigue_downgrade: number;
-  max_age: number;
-  food_variety: number;
-  networks_input_requesters: Object;
-  networks: Array<NeuralNetwork>;
   constructor(
-    pos,
-    eating_type,
-    fatigue_downgrade,
-    max_age,
-    food_variety,
-    networks_input_requesters,
-    networks,
+    pos: P,
+    eating_type: number,
+    fatigue_downgrade: number,
+    max_age: number,
+    food_variety: number,
+    networks_input_requesters: Object<string, (Creature) => Array<number>>,
+    networks: Object<string, NeuralNetwork>,
   ) {
     // input properties
     this.pos = pos;
@@ -35,7 +28,7 @@ class Creature {
     this.fatigue = 0;
   }
 
-  setId(id) {
+  setId(id: number): void {
     this.id = id;
   }
 }

@@ -1,18 +1,15 @@
 // @flow
 import NEURAL_NETS from './neuralNets';
+import PROCESS_FUNCTIONS from '../../assemblies/processFunctions';
 import OneLayer from './OneLayer';
 
 class NeuralNetwork {
-  input_weights: Array<Array<number>>;
-  output_weights: Array<Array<number>>;
-  hidden_layer: NeuralNetwork | OneLayer;
-
   constructor(
-    input_weights,
-    output_weights,
-    hidden_layer,
-    input_fun,
-    output_fun,
+    input_weights: Array<Array<number>>,
+    output_weights: Array<Array<number>>,
+    hidden_layer: NeuralNetwork | OneLayer,
+    input_fun: (value: number) => number,
+    output_fun: (value: number) => number,
   ) {
     this.input_weights = input_weights;
     this.output_weights = output_weights;
@@ -27,7 +24,7 @@ class NeuralNetwork {
     this.getRandomMutateModificator = () => Math.random() ** 10;
   }
 
-  clone() {
+  clone(): NeuralNetwork {
     const cloned_net = new NeuralNetwork(
       this.input_weights.map(arr => arr.slice()),
       this.output_weights.map(arr => arr.slice()),
@@ -38,7 +35,7 @@ class NeuralNetwork {
     return cloned_net;
   }
 
-  mutate(range, mutate_hidden = true) {
+  mutate(range, mutate_hidden = true): NeuralNetwork {
     for (let i = 0; i < this.input_weights.length; i++)
       for (let i2 = 0; i2 < this.input_weights[i].length; i2++)
         this.input_weights[i][i2] += range.generateNumber();
@@ -51,7 +48,7 @@ class NeuralNetwork {
     return this;
   }
 
-  mutateWithLimiter(range, mutate_hidden = true) {
+  mutateWithLimiter(range: Range, mutate_hidden: boolean = true) {
     for (let i = 0; i < this.input_weights.length; i++)
       for (let i2 = 0; i2 < this.input_weights[i].length; i2++)
         this.input_weights[i][i2] +=
@@ -96,7 +93,7 @@ class NeuralNetwork {
     return output;
   }
 
-  calc(a) {
+  calc(a): Array<number> {
     const b = [];
     for (let e = 0; e < this.input_weights[0].length; e++) b[e] = 0;
     for (let e = 0; e < this.input_weights.length; e++)
@@ -114,7 +111,7 @@ class NeuralNetwork {
     return d;
   }
 
-  toString() {
+  toString(): string {
     return `input_weights: ${this.input_weights}\noutput_weights: ${
       this.output_weights
     }\nhidden_layer: ${this.hidden_layer}\ninput_fun: ${
@@ -122,7 +119,7 @@ class NeuralNetwork {
     }\noutput_fun: ${this.output_fun}`;
   }
 
-  toJsonObject() {
+  toJsonObject(): Object {
     return {
       type: this.name,
       input_weights: this.input_weights,
