@@ -1,27 +1,33 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+// let webpack = require('webpack');
 
 module.exports = {
   entry: './js/main.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'main.bundle.js'
+    filename: 'main.bundle.js',
   },
   module: {
-    rules: [{
-      test: /\.js$/, // include .js files
-      //enforce: "pre", // preload the jshint loader
-      exclude: /node_modules/, // exclude any and all files in the node_modules folder
-      use: [{
-        loader: "babel-loader",
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      }]
-    }]
+    rules: [
+      {
+        test: /\.js$/, // include .js files
+        // enforce: "pre", // preload the jshint loader
+        exclude: /node_modules/, // exclude any and all files in the node_modules folder
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-flow'],
+              plugins: ['@babel/plugin-transform-flow-strip-types'],
+            },
+          },
+        ],
+      },
+    ],
   },
   stats: {
-    colors: true
+    colors: true,
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  mode: 'development',
 };

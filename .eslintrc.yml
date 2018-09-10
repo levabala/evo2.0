@@ -1,0 +1,21 @@
+extends:
+  - 'airbnb-base'
+  - 'plugin:flowtype/recommended'
+env:
+  node: true
+  browser: true
+parser: 'babel-eslint'
+plugins:
+  - 'flowtype'
+parserOptions:
+  ecmaVersion: 6
+  sourceType: 'module'
+rules:
+  linebreak-style: 0
+  camelcase: 0
+  no-plusplus: 0
+  no-console: 0
+  lines-between-class-members: 0
+settings:
+  flowtype:
+    onlyFilesWithFlowAnnotation: true
