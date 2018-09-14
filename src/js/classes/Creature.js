@@ -1,4 +1,4 @@
-import P from '../assemblies/P';
+import P from 'assemblies';
 import NeuralNetwork from './networks/NeuralNetwork';
 
 // @flow

@@ -1,20 +1,2 @@
 extends:
-  - 'airbnb-base'
-env:
-  node: true
-  browser: true
-parser: 'babel-eslint'
-parserOptions:
-  ecmaVersion: 6
-  sourceType: 'module'
-rules:
-  curly:
-    - 2
-    - 'multi'
-    - 'consistent'
-  nonblock-statement-body-position: 0
-  operator-linebreak: 0
-  linebreak-style: 0
-  camelcase: 0
-  no-plusplus: 0
-  no-console: 0
+  - 'levabala'

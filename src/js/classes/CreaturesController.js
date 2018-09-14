@@ -2,9 +2,6 @@
 import * as Creature from './Creature';
 
 class CreaturesController {
-  creatures_counter: number;
-  creatures: {};
-
   constructor() {
     this.creatures_counter = 0;
     this.creatures = {};

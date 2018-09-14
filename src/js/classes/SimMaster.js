@@ -3,9 +3,6 @@ import MapController from './SimMapController';
 import CreaturesController from './CreaturesController';
 
 class SimMaster {
-  map_controller: MapController;
-  creatures_controller: CreaturesController;
-
   constructor(
     map_controller: MapController,
     creatures_controller: CreaturesController,

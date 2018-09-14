@@ -1,5 +1,5 @@
 // @flow
-import Range from './Range';
+import Range from 'assemblies';
 
 const PROCESS_FUNCTIONS = {
   Lineral: function Lineral(value: number): number {
