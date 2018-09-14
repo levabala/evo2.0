@@ -4,6 +4,8 @@ import NeuralNetwork from './networks/NeuralNetwork';
 // @flow
 
 class Creature {
+  #id_set = false;
+
   constructor(
     pos: P,
     eating_type: number,
@@ -26,6 +28,15 @@ class Creature {
     this.id = 0;
     this.age = 0;
     this.fatigue = 0;
+  }
+
+  get id() {
+    return this.id;
+  }
+
+  set id(value) {
+    if (this.#id_set) throw new Error('id could not be reset');
+    else this.id = value;
   }
 
   setId(id: number): void {

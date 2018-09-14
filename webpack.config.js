@@ -17,8 +17,11 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-transform-flow-strip-types'],
+              presets: ['@babel/preset-env3'],
+              plugins: [
+                '@babel/plugin-transform-flow-strip-types',
+                '@babel/transform-class-properties',
+              ],
             },
           },
         ],
